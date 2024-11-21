@@ -1,5 +1,257 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* ----------------------------------------------------Header----------------------------------------------------- */
+header {
+    height: 75px;
+    background: #09c1a2;
+    /* display: flex; */
+}
+
+header .navbar,
+header .navbar .container-fluid,
+header .navbar .container-fluid .navbar-brand {
+    height: 13vh;
+    padding: 0;
+}
+
+header .navbar .container-fluid .navbar-brand .logo {
+    /* border: 2px solid green; */
+    width: 80px;
+    height: 75px;
+    margin-left: 1vw;
+    background-image: url(./images/PlayTour.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header .navbar .container-fluid .navbar-brand .brandName {
+    margin-left: 1.5vw;
+    align-items: center;
+    color: white;
+    font-family: "Lucida";
+}
+
+header .navbar .container-fluid .collapse {
+    justify-content: end;
+    padding-right: 5vw;
+}
+
+header .navbar .container-fluid .collapse ul li {
+    padding: 0 1vw;
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li .nav-link {
+    color: rgb(207, 205, 205);
+}
+
+header .navbar .container-fluid .collapse ul li .active {
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li a:hover {
+    text-decoration: underline;
+    color: #024338;
+}
+
+header .navbar .container-fluid .collapse ul li .btn {
+    background: white;
+    /* border: 2px solid #036454; */
+    color: #09c1a2;
+}
+
+header .navbar .container-fluid .collapse ul li .btn:hover {
+    background: #09c1a2;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+}
+
+/* -----------------------------------------------------Main------------------------------------------------------ */
+
+
+/* ----------------------------------------------------Footer----------------------------------------------------- */
+
+
+
+/* ----------------------------------------------------modals------------------------------------------------------ */
+.loginModal .modal .modal-dialog,
+.signupModal .modal .modal-dialog {
+    max-width: 70vw;
+    width: 70vw;
+    height: 80vh;
+    border-radius: 15px;
+}
+
+.loginModal .modal .modal-dialog .modal-content,
+.signupModal .modal .modal-dialog .modal-content{
+    border-radius: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.loginModal .modal .modal-dialog .modal-content .close-btn,
+.signupModal .modal .modal-dialog .modal-content .close-btn {
+
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    font-size: 3rem;
+    color: #000;
+    cursor: pointer;
+}
+
+.loginModal .modal .modal-dialog .modal-content .left ,
+.signupModal .modal .modal-dialog .modal-content .left {
+
+    width: 50%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+
+    background-image: url(./images/loginModal.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+}
+
+.loginModal .modal .modal-dialog .modal-content .right ,
+.signupModal .modal .modal-dialog .modal-content .right {
+
+
+    width: 50%;
+    height: 100%;
+
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.loginModal .modal .modal-dialog .modal-content .right h3,
+.signupModal .modal .modal-dialog .modal-content .right h3 {
+
+    text-align: center;
+    margin-top: 12vh;
+    font-size: 2rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.loginModal .modal .modal-dialog .modal-content .right p,
+.signupModal .modal .modal-dialog .modal-content .right p {
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 2vh;
+    font-size: 1rem;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.loginModal .modal .modal-dialog .modal-content .right form,
+.signupModal .modal .modal-dialog .modal-content .right form{
+    padding: 0 3vw;
+}
+
+.loginModal .modal .modal-dialog .modal-content .right form label,
+.signupModal .modal .modal-dialog .modal-content .right form label{
+    font-size: 1.55rem;
+}
+.loginModal .modal .modal-dialog .modal-content .right form .loginEmail,
+.signupModal .modal .modal-dialog .modal-content .right form .loginEmail{
+
+    border-bottom: 2px solid #024338;
+}
+.loginModal .modal .modal-dialog .modal-content .right form .loginEmail input,
+.signupModal .modal .modal-dialog .modal-content .right form .loginEmail input{
+
+    border: none;
+    border-radius: 0;
+    width: 85%;
+    box-shadow: none !important;
+    font-size: 1.25rem;
+    padding: 0;
+    padding-left: 1vw;
+
+}
+.loginModal .modal .modal-dialog .modal-content .right form .loginEmailerr,
+.signupModal .modal .modal-dialog .modal-content .right form .loginEmailerr{
+
+    height: 4vh;
+    text-align: end;
+    padding-right: 3vw;
+    margin-top: 1vh;
+    font: 1.15em sans-serif;
+}
+.loginModal .modal .modal-dialog .modal-content .right form .loginEmail button,
+.signupModal .modal .modal-dialog .modal-content .right form .loginEmail button{
+
+    width: 10%;
+    border: none;
+    background: transparent;
+    font-size: 1.25rem;
+    margin-left: 3%;
+}
+
+
+.loginModal .modal .modal-dialog .modal-content .right form .btnLogin,
+.signupModal .modal .modal-dialog .modal-content .right form .btnLogin{
+
+    width: 80%;
+    height: 6.2vh;
+    font: 1.15em sans-serif;
+    margin:3vh 10%;
+
+    background: #09c1a2;
+    color: white;
+    border: none;
+
+    border-radius: 5px;
+}
+
+.loginModal .modal .modal-dialog .modal-content .right form .btnLogin:hover,
+.signupModal .modal .modal-dialog .modal-content .right form .btnLogin:hover{
+
+    color: #09c1a2;
+    background: white;
+    border: 2px solid #09c1a2;
+}
+
+.loginModal .modal .modal-dialog .modal-content .right form .loginPwderr{
+    text-align: start;
+    display: flex;
+    padding-right: 0vw;
+/* border: 2px solid red; */
+
+
+}
+.loginModal .modal .modal-dialog .modal-content .right form .loginPwderr a{
+    width: 50%;
+    text-decoration: none;
+}
+.loginModal .modal .modal-dialog .modal-content .right form .loginPwderr #loginPwdErr{
+/* border: 2px solid red; */
+    margin-left: 2vh;
+    width: 50%;
+    text-align: end;
+    padding-right: 3vw;
+}
+
+.signupModal .modal .modal-dialog .modal-content .right h3{
+    margin-top: 5vh;
+}
+.signupModal .modal .modal-dialog .modal-content .right form .btnLogin{
+    margin-bottom: 2vh;
+}
+.signupModal .modal .modal-dialog .modal-content .right form .loginEmailerr{
+    margin-top: 0;
+}
+.signupModal .modal .modal-dialog .modal-content .right form select{
+    font-size: 1.25rem;
+    box-shadow:  none;
+    border: 1px solid black;
 }
