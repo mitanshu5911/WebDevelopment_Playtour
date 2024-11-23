@@ -21,14 +21,14 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
 
-                <a href="#" class="navbar-brand d-flex">
+                <a href="/" class="navbar-brand d-flex">
                     <div class="logo" id="logo1"></div>
                     <div class="brandName d-flex">
                         <h2>PLAYtour</h2>
                     </div>
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,13 +36,14 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav  ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">Login &nbsp; <i class="fa-solid fa-user"></i></a>
+                            <a href="#" class="btn" data-bs-toggle="modal" data-bs-target="#loginModal">Login &nbsp; <i
+                                    class="fa-solid fa-user"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -59,43 +60,44 @@
 
 
 
-<!-- ----------------------------------Modals---------------------------------------- -->
+    <!-- ----------------------------------Modals---------------------------------------- -->
     <div class="loginModal">
-        <div class="modal fade" id="loginModal" data-bs-backdrop="static"  tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="loginModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
-                <div class="left"></div>
-                <div class="right">
-                    <h3>Login</h3>
-                    <p>WELCOME!!!!</p>
-                    <form>
+                    <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+                    <div class="left"></div>
+                    <div class="right">
+                        <h3>Login</h3>
+                        <p>WELCOME!!!!</p>
+                        <form>
 
-                        <label for="loginTxtEmail">Email</label>
-                        <div class="loginEmail d-flex">
-                            <input type="text" name="loginTxtEmail" id="loginTxtEmail" class="form-control">
-                            <button type="button" aria-readonly="true"><i class="fa-solid fa-user"></i></button>
-                        </div>
+                            <label for="loginTxtEmail">Email</label>
+                            <div class="loginEmail d-flex">
+                                <input type="text" name="loginTxtEmail" id="loginTxtEmail" class="form-control">
+                                <button type="button" aria-readonly="true"><i class="fa-solid fa-user"></i></button>
+                            </div>
 
-                        <div class="loginEmailerr" id="loginEmailErr"></div>
+                            <div class="loginEmailerr" id="loginEmailErr"></div>
 
-                        <label for="loginTxtPwd">Password</label>
-                        <div class="loginEmail d-flex">
-                            <input type="password" name="loginTxtPwd" id="loginTxtPwd" class="form-control">
-                            <button type="button" aria-readonly="true"><i class="fa-solid fa-eye"></i></button>
-                        </div>
+                            <label for="loginTxtPwd">Password</label>
+                            <div class="loginEmail d-flex">
+                                <input type="password" name="loginTxtPwd" id="loginTxtPwd" class="form-control" maxlength="14">
+                                <button type="button" aria-readonly="true" id="loginBtnEye"><i class="fa-solid fa-eye-slash" id="loginIconEye"></i></button>
+                            </div>
 
-                        <div class="loginEmailerr loginPwderr">
-                            <a href="#">Forget Password?</a>
-                            <div id="loginPwdErr"></div>
-                        </div>
+                            <div class="loginEmailerr loginPwderr">
+                                <a href="#">Forget Password?</a>
+                                <div id="loginPwdErr"></div>
+                            </div>
 
-                        <button type="button" class="btnLogin">Login</button>
-                    </form>
+                            <button type="button" class="btnLogin" id="btnLogin">Login</button>
+                        </form>
 
-                    <p class="linkSignup">New User? <a href="#" data-bs-dismiss="modal" data-bs-target="#signupModal" data-bs-toggle="modal"><b>SignUp</b></a></p>
+                        <p class="linkSignup">New User? <a href="#" data-bs-dismiss="modal"
+                                data-bs-target="#signupModal" data-bs-toggle="modal"><b>SignUp</b></a></p>
 
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,50 +105,52 @@
 
 
     <div class="signupModal">
-        <div class="modal fade" id="signupModal" data-bs-backdrop="static"  tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="signupModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
-                <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
-                <div class="left"></div>
-                <div class="right">
-                    <h3>SignUp</h3>
-                    <p>WELCOME!!!!</p>
-                    <form>
+                    <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+                    <div class="left"></div>
+                    <div class="right">
+                        <h3>SignUp</h3>
+                        <p>WELCOME!!!!</p>
+                        <form>
 
-                        <label for="signupTxtEmail">Email</label>
-                        <div class="loginEmail d-flex">
-                            <input type="text" name="signupTxtEmail" id="signupTxtEmail" class="form-control">
-                            <button type="button" aria-readonly="true"><i class="fa-solid fa-user"></i></button>
-                        </div>
+                            <label for="signupTxtEmail">Email</label>
+                            <div class="loginEmail d-flex">
+                                <input type="text" name="signupTxtEmail" id="signupTxtEmail" class="form-control">
+                                <button type="button" aria-readonly="true"><i class="fa-solid fa-user"></i></button>
+                            </div>
 
-                        <div class="loginEmailerr" id="singupEmailErr"></div>
+                            <div class="loginEmailerr" id="singupEmailErr"></div>
 
-                        <label for="signupTxtPwd">Password</label>
-                        <div class="loginEmail d-flex">
-                            <input type="password" name="signupTxtPwd" id="signupTxtPwd" class="form-control">
-                            <button type="button" aria-readonly="true"><i class="fa-solid fa-eye"></i></button>
-                        </div>
-                        <div class="loginEmailerr" id="signupPwdErr" style="margin-bottom: 0;"></div>
+                            <label for="signupTxtPwd">Password</label>
+                            <div class="loginEmail d-flex">
+                                <input type="password" name="signupTxtPwd" id="signupTxtPwd" class="form-control" maxlength="14">
+                                <button type="button" class="signupBtnEye" id="signupBtnEye"><i
+                                        class="fa-solid fa-eye-slash" id="signupIconEye"></i></button>
+                            </div>
+                            <div class="loginEmailerr" id="signupPwdErr" style="margin-bottom: 0;"></div>
 
-                        <label for="userType">User Type</label>
-                        <select name="userType" id="userType" class="form-control">
-                            <option value="none">Select</option>
-                            <option value="Player">Player</option>
-                            <option value="Organizer">Organizer</option>
-                        </select>
+                            <label for="userType">User Type</label>
+                            <select name="userType" id="userType" class="form-control">
+                                <option value="none">Select</option>
+                                <option value="Player">Player</option>
+                                <option value="Organizer">Organizer</option>
+                            </select>
 
-                        <button type="button" class="btnLogin" id="btnSignup">Signup</button>
-                    </form>
+                            <button type="button" class="btnLogin" id="btnSignup">Signup</button>
+                        </form>
 
-                    <p class="linkSignup">Already Register? <a href="#" data-bs-dismiss="modal" data-bs-target="#loginModal" data-bs-toggle="modal"><b>Login</b></a></p>
+                        <p class="linkSignup">Already Register? <a href="#" data-bs-dismiss="modal"
+                                data-bs-target="#loginModal" data-bs-toggle="modal"><b>Login</b></a></p>
 
-                </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-<!-- ---------------------------------scripts---------------------------------------- -->
+    <!-- ---------------------------------scripts---------------------------------------- -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

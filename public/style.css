@@ -14,7 +14,8 @@ header {
 header .navbar,
 header .navbar .container-fluid,
 header .navbar .container-fluid .navbar-brand {
-    height: 13vh;
+    height: 75px;
+    /* height: 13vh; */
     padding: 0;
 }
 
@@ -37,8 +38,10 @@ header .navbar .container-fluid .navbar-brand .brandName {
 }
 
 header .navbar .container-fluid .collapse {
+    /* background: #326061; */
     justify-content: end;
     padding-right: 5vw;
+    /* padding-bottom: 1vh; */
 }
 
 header .navbar .container-fluid .collapse ul li {
@@ -254,4 +257,36 @@ header .navbar .container-fluid .collapse ul li .btn:hover {
     font-size: 1.25rem;
     box-shadow:  none;
     border: 1px solid black;
+}
+.signupModal .modal .modal-dialog .modal-content .left{
+    background-image: url(./images/signupModal.png);
+}
+
+
+
+
+
+
+
+/* --------------------------------common--------------------------- */
+.ok{
+    color: green;
+}
+.notOk{
+    color: red;
+}
+
+
+
+
+
+
+
+/* -------------------------------------------Responsiveness---------------------------------- */
+@media screen and (max-width: 992px) { 
+    header .navbar .container-fluid .collapse { 
+        background: #326061; 
+        padding-left: 1vw; 
+        padding-bottom: 1vh; 
+    } 
 }
