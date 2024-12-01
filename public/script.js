@@ -105,6 +105,18 @@ $(document).ready(function(){
         }
         $.ajax(obj).done(function(response){
             alert(response);
+            if(response=="Organizer"){
+                location.href="./organizerDashboard/organizerDashboard.html";
+                localStorage.setItem("activeUser",email);
+            }
+            else if(response=="Player"){
+                location.href="./playerDashboard/playerDashboard.html";
+                localStorage.setItem("activeUser",email);
+                    
+            }
+            else{
+                alert("invalid.credentials");
+            }
         }).fail(function(){
             alert("Server error");
         })
