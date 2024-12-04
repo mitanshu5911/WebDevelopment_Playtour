@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------Header----------------------------------------------------- */
+header {
+    height: 75px;
+    background: #09c1a2;
+}
+
+header .navbar,
+header .navbar .container-fluid,
+header .navbar .container-fluid .navbar-brand {
+    height: 75px;
+    padding: 0;
+}
+
+header .navbar .container-fluid .navbar-brand .logo {
+    width: 80px;
+    height: 75px;
+    margin-left: 1vw;
+    background-image: url(../images/PlayTour.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header .navbar .container-fluid .navbar-brand .brandName {
+    margin-left: 1.5vw;
+    align-items: center;
+    color: white;
+    font-family: "Lucida";
+}
+
+header .navbar .container-fluid .collapse {
+    justify-content: end;
+    padding-right: 3vw;
+    
+}
+
+header .navbar .container-fluid .collapse ul li {
+    padding: 0 1vw;
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li .nav-link {
+    color: white
+}
+
+header .navbar .container-fluid .collapse ul li .active {
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li a:hover {
+    text-decoration: underline;
+    color: #024338;
+    transition: transform 0.5s ease;
+}
+
+header .navbar .container-fluid .collapse ul li .btn {
+    background: white;
+    color: #09c1a2;
+}
+
+header .navbar .container-fluid .collapse ul li .btn:hover {
+    background: #09c1a2;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+}
+
+
+/* -----------------------------------------------------Main------------------------------------------------------ */
+
+main{
+    /* border: 2px solid red; */
+    margin-top: 5vh;
+}
+
+main .container .profilePic div{
+    margin: 1.5vh 0;
+}
+main .container .profilePic div img{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+main .container .profilePic div button{
+    color: #09c1a2;
+    margin-top: 1vh;
+    border: 2px solid #09c1a2;
+}
+main .container .profilePic div button:hover{
+    color: white;
+    background: #09c1a2;
+}
+main .container .email{
+    /* border: 2px solid yellow; */
+    padding: 0 10vw;
+}
+main .container .email label{
+    font-size: 1.85rem;
+    color: #09c1a2;
+}
+main .container .email input{
+    width: 100%;
+    font-size: 1.35rem;
+    padding: 0;
+    padding-left: 2vw;
+    border: none;
+    border-radius: 0%;
+    border-bottom: 1.5px solid #09c1a2;
+    box-shadow: none;
+}
+main .container .information1,
+main .container .information2,
+main .container .information3,
+main .container .information4,
+main .container .information5{
+    margin-bottom: 1vh;
+}
+main .container .information1 div,
+main .container .information2 div,
+main .container .information3 div,
+main .container .information4 div,
+main .container .information5 div{
+    padding-left: 5%;
+    margin-top: 6vh;
+}
+main .container .information1 div label,
+main .container .information2 div label,
+main .container .information3 div label,
+main .container .information4 div label,
+main .container .information5 div label{
+    font-size: 1.85rem;
+    color: #09c1a2;
+}
+main .container .information1 div input,
+main .container .information2 div input,
+main .container .information3 div input,
+main .container .information4 div input{
+    width: 80%;
+    font-size: 1.35rem;
+    padding: 0;
+    padding-left: 1.5vw;
+    border: none;
+    border-radius: 0%;
+    border-bottom: 1.5px solid #09c1a2;
+    box-shadow: none;
+}
+main .container .information4 div img{
+    width: 95%;
+    height: 150px;
+}
+main .container .information4 button{
+    height: 7vh;
+    color: #09c1a2;
+    border: 2px solid #09c1a2;
+    margin-top: 9vh;;
+}
+main .container .information4 button:hover{
+    background: #09c1a2;
+    color: white;
+}
+main .container .information5 div{
+    display: flex;
+    align-items: end;
+
+}
+main .container .information5 textarea{
+    width: 95%;
+    height: 20vh;
+    font-size: 1.35rem;
+    padding: 0;
+    padding-left: 1.5vw;
+    margin-left: 2vw;
+    box-shadow: none;    
+}
+main .container .save{
+    margin: 5vh 0;
+}
+main .container .save button{
+    color: white;
+    /* width: 7vw; */
+    background: #09c1a2;
+    font-size: 1.25rem;
+}
+main .container .save button:hover{
+    color: #09c1a2;
+    /* width: 7vw; */
+    background: white;
+    border: 2px solid #09c1a2;
+    font-size: 1.25rem;
+}
+/* ----------------------------------------------Animations--------------------------------- */
+@keyframes infiniteRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+#settingIcon {
+    display: inline-block;
+}
+/* -------------------------------------------Responsiveness---------------------------------- */
+@media screen and (max-width: 992px) { 
+    header .navbar .container-fluid .collapse { 
+        background: #326061; 
+        padding-left: 1vw; 
+        padding-bottom: 1vh; 
+    } 
+}

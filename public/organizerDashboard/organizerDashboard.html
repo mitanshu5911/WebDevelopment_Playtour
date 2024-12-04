@@ -1,11 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PlayTOUR</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css">
+    <link rel="stylesheet" href="./organizerDashboard.css">
+
 </head>
+
 <body>
-    hello
+
+    <header id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <a href="/" class="navbar-brand d-flex">
+                    <div class="logo" id="logo1"></div>
+                    <div class="brandName d-flex">
+                        <h2>PLAYtour</h2>
+                    </div>
+                </a>
+
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- <a class="nav-link" href="#" id="setting">Setting <i class="fa-duotone fa-solid fa-gear" id="settingIcon" ></i></a> -->
+                            <a class="nav-link" href="#" id="setting"  data-bs-toggle="modal" data-bs-target="#settingsModal">Setting 
+                                <i class="fa-solid fa-gear" id="settingIcon"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn">Logout &nbsp; <i class="fa-duotone fa-light fa-arrow-right-from-bracket"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="col-12 user">WELCOME, <span id="activeUser"></span></div>
+         <div class="container">
+            <div class="row">
+            <div class="col-md-6 col-sm-12 d-flex justify-content-center tournament">
+                <div class="card">
+                    <img src="../images/posttounament.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                     <center>   <h4 class="card-title">Post Tournaments</h4></center>
+                        <p class="card-text">Please share tournament details to attract participants and boost engagement!</p>
+                        <a href="#" class="btn" style="width: 110px;margin-left: 60px;">Host Event</a>
+                      </div>
+                </div>
+
+            </div>
+            <div class="col-md-6 col-sm-12 d-flex justify-content-center profile">
+                <div class="card">
+                    <img src="../images/organizerProfile.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                     <center>   <h4 class="card-title">Organization Profile</h4></center>
+                        <p class="card-text">Create your organizer profile, share events, and attract participants today!</p>
+                        <a href="../organizerProfile/organizerProfile.html" class="btn" style="width: 150px;margin-left: 35px;">Join as organizer</a>
+                      </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- <a href="../playerProfile/playerProfile.html">profile</a> -->
+    </main>
+
+    <!-- ---------------------------------Modals---------------------------------------- -->
+    <div class="settings">
+        <div class="modal fade" id="settingsModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <span class="close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</span>
+                    <h2>Change Password</h2>
+                    <form>
+                        <label for="oldPwd">Old Password</label>
+                        <div class="d-flex box">
+                            <input type="password" id="oldPwd" name="oldPwd" class="form-control">
+                            <button type="button" aria-readonly="true" id="oldBtnEye"><i class="fa-solid fa-eye-slash" id="oldIconEye"></i></button>
+                        </div>
+                        <div class="err"></div>
+                        <label for="newPwd">New Password</label>
+                        <div class="d-flex box">
+                            <input type="password" id="newPwd" name="newPwd" class="form-control" maxlength="14">
+                            <button type="button" aria-readonly="true" id="newBtnEye"><i class="fa-solid fa-eye-slash" id="newIconEye"></i></button>
+                        </div>
+                        <div class="err" id="newPwdErr"></div>
+                        <label for="renewPwd">Re-enter new Password</label>
+                        <div class="d-flex box">
+                            <input type="password" id="renewPwd" name="renewPwd" class="form-control" maxlength="14">
+                            <button type="button" aria-readonly="true" id="renewBtnEye"><i class="fa-solid fa-eye-slash" id="renewIconEye"></i></button>
+                        </div>
+                        <div class="err" id="renewPwdErr"></div>
+                        <input type="checkbox" name="chkrmb" id="chkrmb" disabled><span id="rmbPwd">Remember Password</span>
+                        <center>
+                            <button type="button" class="btn btnChange" id="change">Change Password</button>
+                        </center>
+                    </form>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+    <!-- ---------------------------------scripts---------------------------------------- -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" rossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="./organizerDashboard.js"></script>
+
 </body>
+
 </html>

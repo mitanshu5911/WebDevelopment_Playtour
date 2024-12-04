@@ -6,6 +6,7 @@ var fileuploader = require("express-fileupload");
 
 app.use(express.static("public"));
 app.use(express.static("public/playerprofile"));
+app.use(express.static("public/organizerProfile"));
 app.use(fileuploader());
 app.use(express.urlencoded({ extended: true }));
 
@@ -94,10 +95,6 @@ app.get("/checkUser", function (req, resp) {
             resp.send("Not");
         }
     })
-})
-app.get("/playerdetials", function (req, resp) {
-    let path = __dirname + "/public/playerProfile/playerProfile.html";
-    resp.sendFile(path);
 })
 app.post("/player-information", async function (req, resp) {
     let email = req.body.inputEmail;
@@ -215,6 +212,78 @@ app.post("/updatePlayerinfo",async function(req,resp){
     let idProof = req.body.selectIdProof;
     let otherinfo = req.body.inputOtherInfo;
     // -------------------------------------------------Profile--------------------------------------------
+    let filenameProfile = "hello";
+    if (req.files != null) {
+        filenameProfile = req.files.profilePicFile.name;
+        let path = __dirname + "/public/uploads/" + filenameProfile;
+        console.log(path);
+       await req.files.profilePicFile.mv(path);
+
+        await cloudinary.uploader.upload(path).then(function (result) {
+            filenameProfile = result.url;
+            console.log(filenameProfile);
+        });
+        fs.unlinkSync(path);
+
+    }
+    else {
+        filenameProfile = "nopic.png";
+    }
+    req.body.profilePicPath = filenameProfile;
+    let profile = req.body.profilePicPath;
+    // -------------------------------------------------Profile--------------------------------------------
+
+    // -------------------------------------------------Proof--------------------------------------------
+
+    let filenameProof = "hello";
+    if (req.files != null) {
+        filenameProof = req.files.proofPicFile.name;
+        let path = __dirname + "/public/uploads/" + filenameProof;
+        console.log(path);
+        await req.files.proofPicFile.mv(path);
+
+        await cloudinary.uploader.upload(path).then(function (result) {
+            filenameProof = result.url;
+            console.log(filenameProof);
+        });
+        fs.unlinkSync(path);
+
+    }
+    else {
+        filenameProof = "./public/images/userprofilepic.png";
+    }
+    req.body.profilePicPath = filenameProof;
+    let proofpic = req.body.profilePicPath;
+    // -------------------------------------------------Proof--------------------------------------------
+
+    mysqlserver.query(
+        "UPDATE players SET pname=?, DOB=?, game=?, gender=?, mobileno=?, address=?, city=?, zipcode=?, profilepic=?, idproof=?, proofpic=?, otherinfo=? WHERE email=?",
+        [playerName, DOB, game, gender, mobileno, address, city, zipCode, profile, idProof, proofpic, otherinfo, email],
+        function (err) {
+            if (err) {
+                resp.status(500).send("Database error: " + err.message);
+            } else {
+                resp.send("Record updated successfully");
+            }
+        }
+    );
+    
+})
+
+app.post("/organizerInformation",async function(req,resp){
+    let email=req.body.inputEmail;
+    let organizationName=req.body.inputOrganizationName;
+    let representativeName=req.body.inputRepresentativeName;
+    let repPhoneNo=req.body.inputRepresentativeNo;
+    let secondMbrName=req.body.inputSecondName;
+    let secondPhoneNo=req.body.inputSecondNo;
+    let address = req.body.inputAddress;
+    let zipCode = req.body.inputZipcode;
+    let city = req.body.inputCity;
+    let idProof = req.body.selectIdProof;
+    let otherinfo = req.body.inputOtherInfo;
+
+    // -------------------------------------------------Profile--------------------------------------------
     let filenameProfile = "";
     if (req.files != null) {
         filenameProfile = req.files.profilePicFile.name;
@@ -226,6 +295,8 @@ app.post("/updatePlayerinfo",async function(req,resp){
             filenameProfile = result.url;
             console.log(filenameProfile);
         });
+        fs.unlinkSync(path);
+
     }
     else {
         filenameProfile = "nopic.png";
@@ -247,6 +318,91 @@ app.post("/updatePlayerinfo",async function(req,resp){
             filenameProof = result.url;
             console.log(filenameProof);
         });
+        fs.unlinkSync(path);
+
+    }
+    else {
+        filenameProof = "./public/images/userprofilepic.png";
+    }
+    req.body.profilePicPath = filenameProof;
+    let proofpic = req.body.profilePicPath;
+    // -------------------------------------------------Proof--------------------------------------------
+    mysqlserver.query("INSERT INTO organizers VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[null,email,organizationName,representativeName,repPhoneNo,secondMbrName,secondPhoneNo,address,city,zipCode,profile,idProof,proofpic,otherinfo],function(err){
+            if (err) {
+                resp.status(500).send("Database error: " + err.message);
+            } else {
+                resp.send("Record save successfully");
+            }
+        });
+})
+
+app.get("/fetchOrgaizer",function(req,resp){
+    let email=req.query.inputEmail;
+
+    mysqlserver.query("select * from organizers where email=?",[email],function(err,jsonArray){
+        if(err!=null)
+        {
+            resp.send(err.message);
+        }
+        else{
+            // console.log(jsonArray[0].DOB);
+            resp.send(jsonArray);
+
+        }  
+    })
+})
+
+app.post("/updateOrganizerinfo",async function(req,resp){
+    let email=req.body.inputEmail;
+    let organizationName=req.body.inputOrganizationName;
+    let representativeName=req.body.inputRepresentativeName;
+    let repPhoneNo=req.body.inputRepresentativeNo;
+    let secondMbrName=req.body.inputSecondName;
+    let secondPhoneNo=req.body.inputSecondNo;
+    let address = req.body.inputAddress;
+    let zipCode = req.body.inputZipcode;
+    let city = req.body.inputCity;
+    let idProof = req.body.selectIdProof;
+    let otherinfo = req.body.inputOtherInfo;
+
+    let alprofile=req.body.profilePicFile;
+    let alproof=req.body.proofPicFile;
+    // -------------------------------------------------Profile--------------------------------------------
+    let filenameProfile = "hello";
+    if (req.files != null) {
+        filenameProfile = req.files.profilePicFile.name;
+        let path = __dirname + "/public/uploads/" + filenameProfile;
+
+        console.log(path);
+       await req.files.profilePicFile.mv(path);
+
+        await cloudinary.uploader.upload(path).then(function (result) {
+            filenameProfile = result.url;
+            console.log(filenameProfile);
+        });
+        fs.unlinkSync(path);
+    }
+    else {
+        filenameProfile = alproof;
+    }
+    req.body.profilePicPath = filenameProfile;
+    let profile = req.body.profilePicPath;
+    // -------------------------------------------------Profile--------------------------------------------
+
+    // -------------------------------------------------Proof--------------------------------------------
+
+    let filenameProof = "hello";
+    if (req.files != null) {
+        filenameProof = req.files.proofPicFile.name;
+        let path = __dirname + "/public/uploads/" + filenameProof;
+        console.log(path);
+        await req.files.proofPicFile.mv(path);
+
+        await cloudinary.uploader.upload(path).then(function (result) {
+            filenameProof = result.url;
+            console.log(filenameProof);
+        });
+        fs.unlinkSync(path);
     }
     else {
         filenameProof = "./public/images/userprofilepic.png";
@@ -256,8 +412,8 @@ app.post("/updatePlayerinfo",async function(req,resp){
     // -------------------------------------------------Proof--------------------------------------------
 
     mysqlserver.query(
-        "UPDATE players SET pname=?, DOB=?, game=?, gender=?, mobileno=?, address=?, city=?, zipcode=?, profilepic=?, idproof=?, proofpic=?, otherinfo=? WHERE email=?",
-        [playerName, DOB, game, gender, mobileno, address, city, zipCode, profile, idProof, proofpic, otherinfo, email],
+        "UPDATE organizers SET oname=?, RepName=?, Repno=?, SecName=?, SecNo=?, address=?, city=?, zipcode=?, profilepic=?, idproof=?, proofpic=?, otherinfo=? WHERE email=?",
+        [organizationName,representativeName,repPhoneNo,secondMbrName,secondPhoneNo,address,city,zipCode,profile,idProof,proofpic,otherinfo,email],
         function (err) {
             if (err) {
                 resp.status(500).send("Database error: " + err.message);
@@ -266,5 +422,4 @@ app.post("/updatePlayerinfo",async function(req,resp){
             }
         }
     );
-    
 })

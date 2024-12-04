@@ -114,9 +114,7 @@ $(document).ready(function(){
                 localStorage.setItem("activeUser",email);
                     
             }
-            else{
-                alert("invalid.credentials");
-            }
+            
         }).fail(function(){
             alert("Server error");
         })

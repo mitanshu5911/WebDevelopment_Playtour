@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------Header----------------------------------------------------- */
+header {
+    height: 75px;
+    background: #09c1a2;
+    /* display: flex; */
+}
+
+header .navbar,
+header .navbar .container-fluid,
+header .navbar .container-fluid .navbar-brand {
+    height: 75px;
+    /* height: 13vh; */
+    padding: 0;
+}
+
+header .navbar .container-fluid .navbar-brand .logo {
+    /* border: 2px solid green; */
+    width: 80px;
+    height: 75px;
+    margin-left: 1vw;
+    background-image: url(../images/PlayTour.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header .navbar .container-fluid .navbar-brand .brandName {
+    margin-left: 1.5vw;
+    align-items: center;
+    color: white;
+    font-family: "Lucida";
+}
+
+header .navbar .container-fluid .collapse {
+    /* background: #326061; */
+    justify-content: end;
+    padding-right: 3vw;
+    /* padding-bottom: 1vh; */
+}
+
+header .navbar .container-fluid .collapse ul li {
+    padding: 0 1vw;
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li .nav-link {
+    color: white
+}
+
+header .navbar .container-fluid .collapse ul li .active {
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li a:hover {
+    text-decoration: underline;
+    color: #024338;
+    transition: transform 0.5s ease;
+}
+
+header .navbar .container-fluid .collapse ul li .btn {
+    background: white;
+    /* border: 2px solid #036454; */
+    color: #09c1a2;
+}
+
+header .navbar .container-fluid .collapse ul li .btn:hover {
+    background: #09c1a2;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+}
+
+
+/* -----------------------------------------------------Main------------------------------------------------------ */
+
+main .user{
+    
+    /* border: 2px solid red; */
+    height: 10vh;
+    font-style: italic;
+    padding-left: 1vw;
+}
+main .user span{
+    font-size: 2rem;
+    font-style: normal;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+main .container{
+    /* border: 2px solid green; */
+    margin-top: 5vh;
+}
+
+main .container .tournament .card,
+main .container .profile .card{
+    width: 48%;
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    /* border: 2px solid #cccccc; */
+}
+main .container .tournament .card:hover,
+main .container .profile .card:hover{
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.5);
+}
+main .container .tournament .card img,
+main .container .profile .card img{    
+    /* border: 2px solid black; */
+    width: 200px;
+    margin: auto;
+}
+main .container .tournament .card .card-body a,
+main .container .profile .card .card-body a
+    {
+    margin: 0 35%;
+    border: 2px solid #09c1a2;
+    color: #09c1a2;
+}
+main .container .tournament .card .card-body a:hover,
+main .container .profile .card .card-body a:hover{
+   background: #09c1a2;
+   color: white;
+   /* border: none; */
+}
+
+main .container .profile .card .card-body a{
+    margin: 0 25%;
+
+}
+/* ----------------------------------------------Modals--------------------------------- */
+.settings .modal .modal-dialog{
+    width: 35vw;
+    height: 12vh;
+}
+.settings .modal .modal-dialog .modal-content{
+    height: 85%;
+    border-radius: 15px;
+}
+.settings .modal .modal-dialog .modal-content .close-btn{
+    position: absolute;
+    top: -5px;
+    right: 20px;
+    font-size: 3rem;
+    color: #000;
+    cursor: pointer;
+}
+.settings .modal .modal-dialog .modal-content h2{
+    margin-top: 4vh;
+    margin-left: 1.2vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.settings .modal .modal-dialog .modal-content form{
+    /* border: 2px solid blue; */
+    margin-top: 2vh;
+    padding: 0 3.5vw;
+}
+.settings .modal .modal-dialog .modal-content form label{
+    font-size: 1.35rem;
+}
+.settings .modal .modal-dialog .modal-content form .box{
+    border-bottom: 2px solid #3b7071;
+}
+.settings .modal .modal-dialog .modal-content form .box input{
+    border: none;
+    border-radius: 0;
+    width: 85%;
+    box-shadow: none !important;
+    font-size: 1.25rem;
+    padding: 0;
+    padding-left: 1vw;
+}
+.settings .modal .modal-dialog .modal-content form .box button{
+    width: 10%;
+    border: none;
+    background: transparent;
+    font-size: 1.25rem;
+    margin-left: 3%;
+}
+.settings .modal .modal-dialog .modal-content form .err{
+    height: 4vh;
+    font-size: 1rem;
+    text-align: end;
+    padding-right: 3vw;
+}
+.settings .modal .modal-dialog .modal-content form .btnChange{
+    margin-top: 4vh;
+    background: #09c1a2;
+    color: white;
+    
+}
+.settings .modal .modal-dialog .modal-content form .btnChange:hover{
+    background: white;
+    color: #09c1a2;
+    border: 2px solid #09c1a2;
+}
+/* --------------------------------common--------------------------- */
+.ok{
+    color: green;
+}
+.notOk{
+    color: red;
+}
+/* ----------------------------------------------Animations--------------------------------- */
+@keyframes infiniteRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+#settingIcon {
+    display: inline-block;
+}
+/* -------------------------------------------Responsiveness---------------------------------- */
+@media screen and (max-width: 992px) { 
+    header .navbar .container-fluid .collapse { 
+        background: #326061; 
+        padding-left: 1vw; 
+        padding-bottom: 1vh; 
+    } 
+}
