@@ -1,0 +1,227 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------Header----------------------------------------------------- */
+header {
+    height: 75px;
+    background: #09c1a2;
+    /* display: flex; */
+}
+
+header .navbar,
+header .navbar .container-fluid,
+header .navbar .container-fluid .navbar-brand {
+    height: 75px;
+    /* height: 13vh; */
+    padding: 0;
+}
+
+header .navbar .container-fluid .navbar-brand .logo {
+    /* border: 2px solid green; */
+    width: 80px;
+    height: 75px;
+    margin-left: 1vw;
+    background-image: url(../images/PlayTour.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header .navbar .container-fluid .navbar-brand .brandName {
+    margin-left: 1.5vw;
+    align-items: center;
+    color: white;
+    font-family: "Lucida";
+}
+
+header .navbar .container-fluid .collapse {
+    /* background: #326061; */
+    justify-content: end;
+    padding-right: 3vw;
+    /* padding-bottom: 1vh; */
+}
+
+header .navbar .container-fluid .collapse ul li {
+    padding: 0 1vw;
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li .nav-link {
+    color: white
+}
+
+header .navbar .container-fluid .collapse ul li .active {
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li a:hover {
+    text-decoration: underline;
+    color: #024338;
+    transition: transform 0.5s ease;
+}
+
+header .navbar .container-fluid .collapse ul li .btn {
+    background: white;
+    /* border: 2px solid #036454; */
+    color: #09c1a2;
+}
+
+header .navbar .container-fluid .collapse ul li .btn:hover {
+    background: #09c1a2;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+}
+
+/* -----------------------------------------------------------main---------------------------------------------------- */
+
+main .container .profilePic div{
+    margin: 1.5vh 0;
+}
+main .container .profilePic div img{
+    /* width: 80vw;
+    height: 50vh; */
+    border: 1px solid black;
+    /* border-radius: 50%; */
+}
+main .container .profilePic div button{
+    color: #09c1a2;
+    margin-top: 1vh;
+    border: 2px solid #09c1a2;
+}
+main .container .profilePic div button:hover{
+    color: white;
+    background: #09c1a2;
+}
+main .post{
+    height: 10vh;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #024338;
+    font-size: larger;
+    border-bottom-right-radius: 15px;
+
+    
+}
+
+main .delete{
+    height: 10vh;
+
+    cursor: pointer;
+    height: 10vh;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #024338;
+    font-size: larger;
+    background: #09c1a2;
+    /* border-bottom: 1px solid black; /* Example of a light gray border 
+    border-left: 1px solid black;*/
+    border-bottom-left-radius: 15px; 
+
+}
+main .infoTournament{
+    /* border: 2px solid red; */
+    padding-top: 10vh;
+}
+main .infoTournament .email{
+    padding: 0 10vw;
+}
+main .infoTournament .email label{
+    font-size: 1.85rem;
+    color: #09c1a2;
+}
+main .infoTournament .email input{
+    width: 100%;
+    font-size: 1.35rem;
+    padding: 0;
+    padding-left: 2vw;
+    border: none;
+    border-radius: 0%;
+    border-bottom: 1.5px solid #09c1a2;
+    box-shadow: none;
+}
+
+
+main .infoTournament .information1,
+main .infoTournament .information2,
+main .infoTournament .information3,
+main .infoTournament .information4,
+main .infoTournament .information5{
+    margin-bottom: 1vh;
+}
+main .infoTournament .information1 div,
+main .infoTournament .information2 div,
+main .infoTournament .information3 div,
+main .infoTournament .information4 div,
+main .infoTournament .information5 div{
+    padding-left: 5%;
+    margin-top: 6vh;
+}
+main .infoTournament .information1 div label,
+main .infoTournament .information2 div label,
+main .infoTournament .information3 div label,
+main .infoTournament .information4 div label,
+main .infoTournament .information5 div label{
+    font-size: 1.85rem;
+    color: #09c1a2;
+}
+main .infoTournament .information1 div input,
+main .infoTournament .information2 div input,
+main .infoTournament .information3 div input,
+main .infoTournament .information4 div input{
+    width: 90%;
+    font-size: 1.35rem;
+    padding: 0;
+    padding-left: 1.5vw;
+    border: none;
+    border-radius: 0%;
+    border-bottom: 1.5px solid #09c1a2;
+    box-shadow: none;
+}
+main .information3 div select{
+    width: 90%;
+    font-size: 1.35rem;
+    padding: 0;
+    padding-left: 1.5vw;
+    border: none;
+    border-radius: 0%;
+    border-bottom: 1.5px solid #09c1a2;
+    box-shadow: none;
+    outline: none;
+}
+
+main .container .information5 div{
+
+    display: flex;
+    align-items: end;
+}
+main .container .information5 textarea{
+    width: 90%;
+    height: 25vh;
+    font-size: 1.35rem;
+    padding: 0;
+    padding-left: 1.5vw;
+    box-shadow: none;    
+    margin-left: 5%;
+}
+main .infoTournament #btnPost{
+    margin: 7vh 0;
+    color: white;
+    background: #09c1a2;
+}
+main .infoTournament #btnPost:hover{
+    color: #09c1a2;
+    background: white;
+    border: 2px solid #09c1a2;
+}
+main .deleteTournament{
+    display: none;
+}
