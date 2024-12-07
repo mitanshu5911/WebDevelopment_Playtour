@@ -91,14 +91,12 @@ main .user span{
     font-style: normal;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-main .container{
-    /* border: 2px solid green; */
-    margin-top: 5vh;
-}
+
 
 main .container .tournament .card,
 main .container .profile .card{
     width: 48%;
+    margin-top: 5vh;
     box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
     /* border: 2px solid #cccccc; */
 }

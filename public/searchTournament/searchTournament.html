@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayTOUR</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-duotone-solid.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-regular.css">
+    <link rel="stylesheet" href="./searchTournament.css">
+
+</head>
+
+<body ng-app="kuchModule" ng-controller="kuchController" ng-init="doFetchCity();doFetchGame();">
+
+    <header id="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <a href="/" class="navbar-brand d-flex">
+                    <div class="logo" id="logo1"></div>
+                    <div class="brandName d-flex">
+                        <h2>PLAYtour</h2>
+                    </div>
+                </a>
+
+                <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  ms-auto">
+                        <li class="nav-item">
+                            <form class="d-flex" role="search">
+                                <input class="form-control" type="search" placeholder="Search" aria-label="Search" ng-model="inputSearch" id="seachinput">
+                                <button type="button"><i class="fa-duotone fa-solid fa-magnifying-glass" ng-click="doFetchBySearch();"></i></button>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="btn">Logout &nbsp; <i
+                                    class="fa-duotone fa-light fa-arrow-right-from-bracket"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container searchArea">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 d-flex justify-content-centered city">
+                    <select class="form-select" ng-change="doShowSelCity();" ng-model="selCity">
+                        <option value="None">Select City</option>
+                        <option ng-repeat="boxObj in jsonCity" value="{{boxObj.city}}">{{boxObj.city}}</option>
+                    </select>
+                </div>
+                <div class="col-md-6 col-sm-12 d-flex justify-content-centered game">
+                    <select class="form-select" ng-change="doShowSelGame();" ng-model="selGame">
+                        <option value="None">Select Game</option>
+                        <option ng-repeat="boxObj in jsonGame" value="{{boxObj.game}}">{{boxObj.game}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <center>
+            <button type="button" class="btn btn-outline-primary" ng-click="doFetchAll();">FETCH ALL</button>
+        </center>
+
+        <div class="container tournament">
+            <div class="row">
+                <div class="col-md-3 col-sm-12" ng-repeat="boxObj in jsonArray">
+                    <div class="card">
+                        <center><img src="{{boxObj.posterpic}}" width="190" height="120" alt="">
+    
+                                <h4 class="card-title">{{boxObj.title}}</h4>
+                        </center>
+                        <div class="card-body">
+                        <p><b>Game :- </b>{{boxObj.game}}</p>
+                        <p><b>City:- </b>{{boxObj.city}}</p>
+
+                        <p><b>Register By :- </b>{{boxObj.registrationDate.split('T')[0]}}</p>
+                        <p><b>Entry Fee :- </b>{{boxObj.entryFee}}</p>
+                        <center>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1" ng-click="dofetchone($index)">Details</a>
+
+                        </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <!-- ---------------------------------scripts---------------------------------------- -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        rossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+
+    <script src="./searchTounament.js"></script>
+
+</body>
+
+</html>

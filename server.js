@@ -3,6 +3,7 @@ var app = express();
 var mysql2 = require("mysql2");
 var cloudinary = require("cloudinary").v2;
 var fileuploader = require("express-fileupload");
+var nodemailer=require("nodemailer");
 
 app.use(express.static("public"));
 app.use(express.static("public/playerprofile"));
@@ -20,6 +21,14 @@ cloudinary.config({
     api_key: '534154286537995',
     api_secret: 'sKuNTFoEfyBEmpI8Soxs_pUyQKo'
 });
+
+let mailer=nodemailer.createTransport({
+    service:`gmail`,
+    auth:{
+        user:`play.tour.help@gmail.com`,
+        pass:`kwxbhnouhrebepib`
+    }
+})
 
 let config = "mysql://avnadmin:AVNS_1OfzFkin3gdRa0RKuVx@playtour-playtour.c.aivencloud.com:12731/PLAYTOUR";
 
@@ -267,66 +276,72 @@ app.get("/changePwd",function(req,resp){
 //     );
     
 // })
-app.post("/updatePlayerinfo", async function (req, resp) {
-    try {
-      const {
-        inputEmail: email,
-        inputName: playerName,
-        inputDOB: DOB,
-        inputGender: gender,
-        inputGame: game,
-        inputMobileNo: mobileno,
-        inputAddress: address,
-        inputZipcode: zipCode,
-        inputCity: city,
-        selectIdProof: idProof,
-        inputOtherInfo: otherinfo,
-      } = req.body;
+
+
+// app.post("/updatePlayerinfo", async function (req, resp) {
+//     try {
+//       const {
+//         inputEmail: email,
+//         inputName: playerName,
+//         inputDOB: DOB,
+//         inputGender: gender,
+//         inputGame: game,
+//         inputMobileNo: mobileno,
+//         inputAddress: address,
+//         inputZipcode: zipCode,
+//         inputCity: city,
+//         selectIdProof: idProof,
+//         inputOtherInfo: otherinfo,
+//         profilePicFile: alprofile,
+//       proofPicFile: alproof,
+
+//       } = req.body;
+//       alprofile=req.body.profilePicFile;
+//       alproof=req.body.proofPicFile;
+//       // Utility function to handle file uploads
+//       async function handleFileUpload(file, existingPath) {
+//         if (file) {
+//           const filename = `${Date.now()}-${file.name}`;
+//           const filePath = `${__dirname}/public/uploads/${filename}`;
+//           await file.mv(filePath); // Save file to server
+//           const result = await cloudinary.uploader.upload(filePath); // Upload to Cloudinary
+//           return result.url; // Return Cloudinary URL
+//         } else {
+//           return existingPath; // Return existing path if no new file
+//         }
+//       }
   
-      // Utility function to handle file uploads
-      async function handleFileUpload(file, existingPath) {
-        if (file) {
-          const filename = `${Date.now()}-${file.name}`;
-          const filePath = `${__dirname}/public/uploads/${filename}`;
-          await file.mv(filePath); // Save file to server
-          const result = await cloudinary.uploader.upload(filePath); // Upload to Cloudinary
-          return result.url; // Return Cloudinary URL
-        } else {
-          return existingPath; // Return existing path if no new file
-        }
-      }
+//       // File upload handling for profile picture
+//       const profilePicPath = await handleFileUpload(
+//         req.files?.profilePicFile,
+//         alprofile
+//       );
   
-      // File upload handling for profile picture
-      const profilePicPath = await handleFileUpload(
-        req.files?.profilePicFile,
-        "nopic.png"
-      );
+//       // File upload handling for proof picture
+//       const proofPicPath = await handleFileUpload(
+//         req.files?.proofPicFile,
+//         alproof
+//       );
   
-      // File upload handling for proof picture
-      const proofPicPath = await handleFileUpload(
-        req.files?.proofPicFile,
-        "./public/images/userprofilepic.png"
-      );
-  
-      // MySQL query to update player information
-      mysqlserver.query(
-                "UPDATE players SET pname=?, DOB=?, game=?, gender=?, mobileno=?, address=?, city=?, zipcode=?, profilepic=?, idproof=?, proofpic=?, otherinfo=? WHERE email=?",
-                [playerName, DOB, game, gender, mobileno, address, city, zipCode, profilePicPath, idProof, proofPicPath, otherinfo, email],
-                 function (err) {
-                     if (err) {
-                         resp.status(500).send("Database error: " + err.message);
-                     } else {
-                         resp.send("Record updated successfully");
-                     }
-                }
-            );
+//       // MySQL query to update player information
+//       mysqlserver.query(
+//                 "UPDATE players SET pname=?, DOB=?, game=?, gender=?, mobileno=?, address=?, city=?, zipcode=?, profilepic=?, idproof=?, proofpic=?, otherinfo=? WHERE email=?",
+//                 [playerName, DOB, game, gender, mobileno, address, city, zipCode, profilePicPath, idProof, proofPicPath, otherinfo, email],
+//                  function (err) {
+//                      if (err) {
+//                          resp.status(500).send("Database error: " + err.message);
+//                      } else {
+//                          resp.send("Record updated successfully");
+//                      }
+//                 }
+//             );
             
-     }
-     catch (err) {
-      console.error(err);
-      resp.status(500).send("Server error: " + err.message);
-    }
-  });
+//      }
+//      catch (err) {
+//       console.error(err);
+//       resp.status(500).send("Server error: " + err.message);
+//     }
+//   });
   
 
 app.post("/organizerInformation",async function(req,resp){
@@ -604,4 +619,85 @@ app.post("/postTournament",async function(req,resp){
     );
     
     
+})
+
+app.get("/getCities",function(req,resp){
+    mysqlserver.query("SELECT DISTINCT city FROM tournaments;",function(err,jsonArray){
+        if(err!=null){
+            resp.send(err.message);
+        }
+        else{
+            resp.send(jsonArray);
+        }
+    })
+})
+
+app.get("/getGames",function(req,resp){
+    mysqlserver.query("SELECT DISTINCT game FROM tournaments;",function(err,jsonArray){
+        if(err!=null){
+            resp.send(err.message);
+        }
+        else{
+            resp.send(jsonArray);
+        }
+    })
+})
+
+app.get("/fetch-all",function(req,resp){
+    let city=req.query.city;
+    let game=req.query.game;
+    mysqlserver.query("select * from tournaments where city=? and game=?", [city,game],function(err,jsonArray){
+        if(err!=null){
+            resp.send(err.message);
+        }
+        else{
+            resp.send(jsonArray);
+        }
+    })
+})
+
+
+app.get("/emailLogin",function(req,resp){
+    let email=req.query.inputEmail;
+
+    let mailDetails={
+        from:`play.tour.help@gmail.com`,
+        to: email,
+        subject:'Testing email',
+        text: `Your id is successfully logged in Playtour`
+    }
+    mailer.sendMail(mailDetails,function(err,result){
+        if(err) throw err;
+        console.log("email send");
+    })
+})
+
+app.get("/emailSignup",function(req,resp){
+    let email=req.query.inputEmail;
+
+    let mailDetails={
+        from:`play.tour.help@gmail.com`,
+        to: email,
+        subject:'Testing email',
+        text: `Your id is successfully SignUp in Playtour`
+    }
+    mailer.sendMail(mailDetails,function(err,result){
+        if(err) throw err;
+        console.log("email send");
+    })
+})
+
+app.get("/fetchUsingSearch",function(req,resp){
+    let city=req.query.city;
+    let game=req.query.game;
+    let title=req.query.title;
+
+    mysqlserver.query("select * from tournaments where city=? or game=? or title=?", [city,game,title],function(err,jsonArray){
+        if(err!=null){
+            resp.send(err.message);
+        }
+        else{
+            resp.send(jsonArray);
+        }
+    })
 })

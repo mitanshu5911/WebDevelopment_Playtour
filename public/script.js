@@ -35,7 +35,21 @@ $(document).ready(function(){
                 }
                 else{
                     alert(response);
+                    return;
                 }
+
+                let objDetail={
+                    type:"get",
+                    url:"/emailSignup",
+                    data:{
+                        inputEmail:email
+                    }
+                }
+                $.ajax(objDetail).done(function(response){
+        
+                }).fail(function(){
+                    alert("Server error");
+                })
             }).fail(function(err){
                 alert(err.message);
             })
@@ -43,6 +57,9 @@ $(document).ready(function(){
         else{
             alert("Enter the right credentials");
         }
+
+       
+
     }) 
     
     $("#signupTxtEmail").blur(function(){
@@ -92,7 +109,7 @@ $(document).ready(function(){
     $("#btnLogin").click(function(){
         let email=$("#loginTxtEmail").val();
         let password=$("#loginTxtPwd").val();
-
+        let result=0;
         // alert("Hello");
 
         let obj={
@@ -104,7 +121,6 @@ $(document).ready(function(){
             }
         }
         $.ajax(obj).done(function(response){
-            alert(response);
             if(response=="Organizer"){
                 location.href="./organizerDashboard/organizerDashboard.html";
                 localStorage.setItem("activeUser",email);
@@ -112,12 +128,30 @@ $(document).ready(function(){
             else if(response=="Player"){
                 location.href="./playerDashboard/playerDashboard.html";
                 localStorage.setItem("activeUser",email);
-                    
             }
+            else{
+                alert(response);
+            }
+            if(response=="Organizer"||response=="Player"){
+            let objDetail={
+                type:"get",
+                url:"/emailLogin",
+                data:{
+                    inputEmail:email
+                }
+            }
+            $.ajax(objDetail).done(function(response){
+    
+            }).fail(function(){
+                alert("Server error");
+            })
+        }
             
         }).fail(function(){
             alert("Server error");
         })
+        
+        
     })
 
     $("#loginTxtEmail").blur(function(){

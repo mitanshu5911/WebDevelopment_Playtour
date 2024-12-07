@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------------------Header----------------------------------------------------- */
+header {
+    height: 75px;
+    background: #09c1a2;
+    /* display: flex; */
+}
+
+header .navbar,
+header .navbar .container-fluid,
+header .navbar .container-fluid .navbar-brand {
+    height: 75px;
+    /* height: 13vh; */
+    padding: 0;
+}
+
+header .navbar .container-fluid .navbar-brand .logo {
+    /* border: 2px solid green; */
+    width: 80px;
+    height: 75px;
+    margin-left: 1vw;
+    background-image: url(../images/PlayTour.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header .navbar .container-fluid .navbar-brand .brandName {
+    margin-left: 1.5vw;
+    align-items: center;
+    color: white;
+    font-family: "Lucida";
+}
+
+header .navbar .container-fluid .collapse {
+    /* background: #326061; */
+    justify-content: end;
+    padding-right: 3vw;
+    /* padding-bottom: 1vh; */
+}
+
+header .navbar .container-fluid .collapse ul li {
+    padding: 0 1vw;
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li .nav-link {
+    color: white
+}
+
+header .navbar .container-fluid .collapse ul li .active {
+    color: white;
+}
+
+header .navbar .container-fluid .collapse ul li a:hover {
+    text-decoration: underline;
+    color: #024338;
+    transition: transform 0.5s ease;
+}
+
+header .navbar .container-fluid .collapse ul li .btn {
+    background: white;
+    /* border: 2px solid #036454; */
+    color: #09c1a2;
+}
+
+header .navbar .container-fluid .collapse ul li .btn:hover {
+    background: #09c1a2;
+    text-decoration: none;
+    border: 2px solid white;
+    color: white;
+}
+header .navbar .container-fluid .collapse ul li form{
+    /* border: 2px solid red; */
+    margin-right: 15vw;
+}
+header .navbar .container-fluid .collapse ul li form input{
+    width: 30vw;
+    margin: 0;
+    border-radius: 0;
+
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    box-shadow: none;
+
+}
+header .navbar .container-fluid .collapse ul li form button{
+    margin: 0;
+    border-radius: 0;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #09c1a2;
+    width: 40px;
+    background-color: white;
+    border: none;
+    border-left: 1px solid #cccc;
+
+}
+header .navbar .container-fluid .collapse ul li form button:hover{
+    color: #046b5a;
+}
+/* --------------------------------------------------main------------------------------------------*/
+main .searchArea{
+    /* border: 2px solid black; */
+    margin:5vh auto;
+}
+main .searchArea .city{
+    margin: 5vh 0;
+    /* border: 2px solid blue; */
+    padding: 0 10%;
+}
+main .searchArea .game{
+    margin: 5vh 0;
+    /* border: 2px solid green ; */
+    padding: 0 10%;
+
+}
+
+main .tournament{
+    /* border: 2px solid black; */
+    margin:5vh auto;
+}
+main .tournament .row .card{
+    box-shadow: 0 0 10px 0px rgba(0,0,0,0.5);
+    padding-top: 10px;
+}
+main .tournament .row .card:hover{
+    box-shadow: 0 0 20px 4px rgba(0,0,0,0.5);
+}
+
+main .tournament .row .card h4{
+    /* border: 2px solid red; */
+    padding-top: 2vh ;
+} 
+main .tournament .row .card .card-body{
+    /* border: 2px solid green; */
+    padding-top: 0;
+}
+
+
+
+@media screen and (max-width: 992px) { 
+    header .navbar .container-fluid .collapse { 
+        background: #326061; 
+        padding-left: 1vw; 
+        padding-bottom: 1vh; 
+    } 
+}

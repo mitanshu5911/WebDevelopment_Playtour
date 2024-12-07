@@ -1,6 +1,15 @@
 $(document).ready(function() {
     let email=localStorage.getItem("activeUser");
 
+    $("#logoutBtn").click(function(){
+        localStorage.removeItem("activeUser");
+        email="";
+        $("#items").css("display","none");
+        $("#activeUser").html("");
+
+        location.href="../index.html";
+    })
+
     let obj={
         type:"get",
         url:"/fetchUser",
@@ -141,4 +150,6 @@ $(document).ready(function() {
         })
         
     })
+
+    
 });
